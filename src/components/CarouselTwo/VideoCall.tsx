@@ -145,7 +145,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { FIRESTORE_DB } from "../../../FirebaseConfig";
 import { doc, getDoc } from 'firebase/firestore';
 import YoutubePlayer from 'react-native-youtube-iframe';
-// import VideoSK from './VideoSK';
+import VideoSK from './VideoSK';
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -260,7 +260,7 @@ const VideoCallCarousel = () => {
               play={true}
             />
           )} */}
-          {/* <VideoSK /> */}
+          <VideoSK />
         </View>
       </Modal>
     </View>

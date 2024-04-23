@@ -144,7 +144,7 @@ function JoinScreen(props) {
         flex: 1,
         backgroundColor: '#F6F6FF',
         justifyContent: 'center',
-        paddingHorizontal: 6 * 10,
+        paddingHorizontal: 10 * 10,
       }}>
       <TouchableOpacity
         onPress={() => {
