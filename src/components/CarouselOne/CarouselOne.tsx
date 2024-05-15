@@ -16,7 +16,9 @@ import Entertainment from "../CarouselTwo/Entertainment";
 import GLCommunity from "../CarouselTwo/GLCommunity";
 import TestVideo from "../TestVideo";
 import VideoCallCarousel from "../CarouselTwo/VideoCall";
+import IsolateVid from '../CarouselTwo/IsolateVid'
 import HowTo from "../CarouselTwo/HowTo";
+import CallTest from "../CarouselTwo/CallTest";
 // import { FIRESTORE_DB } from "@/FirebaseConfig";
 // import { FIRESTORE_DB } from "../../../FirebaseConfig";
 
@@ -34,13 +36,14 @@ const data: Item[] = [
   {
     title: "ACTIVITIES",
     icon: "weight-lifter",
-    component: <Activities />,
+    component: <Activities/>,
     prompt: "Join an Activity?",
   },
   {
     title: "VIDEO CALL",
     icon: "phone",
     component: <VideoCallCarousel />,
+    // component: <IsolateVid />, 
     prompt: "Make a Video Call?",
   },
   {

@@ -32,7 +32,7 @@ const Entertainment = () => {
       setYoutubeId(docSnap.data().youtubeId); // Assuming the document contains a field `youtubeId`
       setIsModalVisible(true); // Open the modal to play video
     } else {
-      console.log("No such document!");
+      console.log("No such document -entertainment!");
     }
   };
 

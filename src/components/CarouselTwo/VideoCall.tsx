@@ -147,6 +147,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import YoutubePlayer from 'react-native-youtube-iframe';
 import VideoSK from './VideoSK';
 
+
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 
@@ -154,17 +155,18 @@ const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window'
 const VideoCallCarousel = () => {
   const [contacts, setContacts] = useState([
     { id: 'goldenGirls', name: 'Carina', prompt: 'Watch Golden Girls?' },
-    { id: 'jeopardy', name: 'John', prompt: 'Watch Jeopardy?' },
-    { id: 'Wheel Of Fortune', name: 'Jeopardy', prompt: 'Watch Wheel Of Fortune?' },
-    { id: 1, name: 'Carina', phoneNumber: '1234567890',prompt: 'Call Carina?'  },
+    { id: 'jeopardy', name: 'Elizabeth', prompt: 'Watch Jeopardy?' },
+    { id: 'Wheel Of Fortune', name: 'Pat', prompt: 'Watch Wheel Of Fortune?' },
+    { id: 1, name: 'Shari', phoneNumber: '1234567890',prompt: 'Call Carina?'  },
     // Add more shows with their unique Firestore document IDs
   ]);
 
   const [youtubeId, setYoutubeId] = useState('');
   const [activeIndex, setActiveIndex] = useState(0);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [meetingId, setMeetingId] = useState('');
 
-  const fetchAndPlayVideo = async (docId) => {
+  const fetchAndPlayVideo = async (docId: string) => {
     const docRef = doc(FIRESTORE_DB, "entertainment", docId);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -172,9 +174,56 @@ const VideoCallCarousel = () => {
       setYoutubeId(docSnap.data().youtubeId); // Assuming the document contains a field `youtubeId`
       setIsModalVisible(true); // Open the modal to play video
     } else {
-      console.log("No such document!");
+      console.log("No such document!-videocallcarousel");
     }
   };
+
+// // Initialize Meeting:
+// // Please go into .env file and copy and paste TOKEN into this line below:
+// const token: string = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlrZXkiOiI1NjRhMzM3OS04YzA1LTRkM2ItODIxNi1kNzU1NDRlYTU0MTkiLCJwZXJtaXNzaW9ucyI6WyJhbGxvd19qb2luIl0sImlhdCI6MTcxMjk1NDg0MSwiZXhwIjoxNzI4NTA2ODQxfQ.dLo_1mf5SWhP9ou11weP-FvZjm9cWicwuyqmopqp268';
+
+// // Define a type for the function parameter
+// type CreateMeetingParams = {
+//   token: string;
+// };
+
+// // API call to create meeting
+//  const createMeeting = async ({ token }: CreateMeetingParams): Promise<string> => {
+//   const response = await fetch('https://api.videosdk.live/v1/meetings', {
+//     method: 'POST',
+//     headers: {
+//       authorization: `${token}`,
+//       'Content-Type': 'application/json',
+//     },
+//     body: JSON.stringify({ region: 'sg001' }),
+//   });
+
+//   const { meetingId } = await response.json();
+//   return meetingId;
+// };
+
+// // TypeScript type for function
+// const fetchAndInitializeVideoCall = (): void => {
+//   const docId: string = 'example-doc-id'; // Example docId, replace with actual value
+//   fetchAndPlayVideo(docId);
+// };
+
+// // TypeScript type for async function
+// const handleTracyCardPress = async (): Promise<void> => {
+//   const meetingId: string = await createMeeting({ token });
+//   setMeetingId(meetingId); // Assuming setMeetingId sets the meeting context in React state
+
+//   // Save the meeting ID to Firestore
+//   const db = firebase.firestore();
+//   const meetingRef = db.collection('meetings').doc(meetingId);
+//   await meetingRef.set({
+//     caller: 'Elizabeth',
+//     callee: 'Tracy',
+//     meetingId: meetingId,
+//     status: 'initiated' // Status can be used to manage call states
+//   });
+// };
+
 
   const handleSnapToItem = (index: number) => {
         setActiveIndex(index);
@@ -182,7 +231,7 @@ const VideoCallCarousel = () => {
 
       const scrollViewRef = useRef<ScrollView>(null);
 
-  const renderItem = ({ item, index }) => (
+  const renderItem = ({ item, index}) => (
     <TouchableOpacity
       key={item.id}
      
