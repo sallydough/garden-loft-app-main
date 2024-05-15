@@ -35,7 +35,7 @@ const HelpButton: React.FC = (() => {
           console.log("User data:", userSnap.data());
           setUserInfo(userSnap.data()); // Assuming 'email' is a field in your document
         } else {
-          console.log("No such document!");
+          console.log("No such document! -helpbutton");
         }
       }
     };

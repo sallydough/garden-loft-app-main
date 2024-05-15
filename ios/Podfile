@@ -31,6 +31,19 @@ target 'gardenloftapp' do # Replace 'YourTargetName' with 'gardenloftapp'
   # Pods for VideoSDK
   pod 'react-native-webrtc', :path => '../node_modules/@videosdk.live/react-native-webrtc'
 
+  # pod "React", :path => "../node_modules/react-native", :subspecs => [
+  # 'React-RCTText',
+  # 'React-RCTImage',
+  # 'React-RCTNetwork"',
+  # 'React-Core/RCTWebSocket',
+  # ]
+
+  pod 'React-Core', :path => '../node_modules/react-native/'
+pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
+pod 'React-RCTImage', :path => '../node_modules/react-native/Libraries/Image'
+pod 'React-RCTNetwork', :path => '../node_modules/react-native/Libraries/Network'
+
+
   # Ensure you include the Expo and React Native auto-linking scripts
   use_expo_modules!
   config = use_native_modules!
