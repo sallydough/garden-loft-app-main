@@ -1,9 +1,9 @@
-// /**
-//  * Sample React Native App
-//  * https://github.com/facebook/react-native
-//  *
-//  * @format
-//  */
+// // /**
+// //  * Sample React Native App
+// //  * https://github.com/facebook/react-native
+// //  *
+// //  * @format
+// //  */
 
 
 import React, {useState, useEffect} from 'react';
@@ -26,7 +26,6 @@ import {createMeeting, token} from './ApiSK';
 import { FIRESTORE_DB } from "../../../FirebaseConfig";
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import io from 'socket.io-client';
-
 
 const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
@@ -212,7 +211,8 @@ const initiateCall = async (calleeEmail) => {
     timestamp: new Date()
   });
   
-  const socket = io('http://192.168.1.73:3000/'); // thin air labs wifi
+  // const socket = io('http://192.168.1.73:3000/'); // thin air labs wifi
+  const socket = io('http://10.0.0.193:3000/'); // sally wifi
   // const socket = io('http://10.44.22.86:3000/'); //inception wifi
   socket.emit('callUser', {
     calleeId: calleeEmail,
@@ -443,258 +443,8 @@ export default function VideoSK() {
   );
 }
 
-// import React, { useState, useEffect, useRef } from 'react';
-// import {
-//   SafeAreaView,
-//   TouchableOpacity,
-//   Text,
-//   View,
-//   Dimensions,
-//   FlatList,
-// } from 'react-native';
-// import {
-//   MeetingProvider,
-//   useMeeting,
-//   useParticipant,
-//   MediaStream,
-//   RTCView,
-// } from '@videosdk.live/react-native-sdk';
-// import { createMeeting, token } from './ApiSK';
-// import { FIRESTORE_DB } from '../../../FirebaseConfig';
-// import { doc, setDoc } from 'firebase/firestore';
-// import io from 'socket.io-client';
 
-// const { width: viewportWidth } = Dimensions.get('window');
 
-// const socket = io('http://192.168.2.201:3500', { transports: ['websocket'] });
 
-// const initiateCall = async (calleeEmail, callerId) => {
-//   const callDocRef = await doc(FIRESTORE_DB, 'calls', 'callId');
-//   await setDoc(callDocRef, {
-//     callerId,
-//     calleeId: calleeEmail,
-//     status: 'initiated',
-//     timestamp: new Date(),
-//   });
 
-//   socket.emit('callUser', {
-//     calleeId: calleeEmail,
-//     from: callerId,
-//     name: 'Pat',
-//     callId: callDocRef.id,
-//   });
-// };
 
-// const JoinScreen = (props) => {
-//   const [meetingId, setMeetingId] = useState('');
-//   const [callerId] = useState(
-//     Math.floor(100000 + Math.random() * 900000).toString()
-//   );
-
-//   const handleCreateMeeting = async () => {
-//     const newMeetingId = '2eir-4xus-3ygn';
-//     setMeetingId(newMeetingId);
-
-//     const elizabethContactRef = doc(FIRESTORE_DB, 'contacts', 'Elizabeth');
-//     const tracyContactRef = doc(
-//       FIRESTORE_DB,
-//       'contacts',
-//       'Elizabeth',
-//       'contacts',
-//       'Shane'
-//     );
-
-//     await setDoc(elizabethContactRef, { meetingId: newMeetingId }, { merge: true });
-//     await setDoc(tracyContactRef, { calleeId: newMeetingId, status: 'initiated' }, { merge: true });
-
-//     props.getMeetingId(newMeetingId);
-//     props.onMeetingCreated(newMeetingId);
-//   };
-
-//   return (
-//     <SafeAreaView
-//       style={{
-//         flex: 1,
-//         backgroundColor: '#fff',
-//         justifyContent: 'center',
-//         paddingHorizontal: 10 * 10,
-//         width: viewportWidth * 0.88,
-//       }}
-//     >
-//       <TouchableOpacity
-//         onPress={handleCreateMeeting}
-//         style={{ backgroundColor: '#f3b718', padding: 12, borderRadius: 6 }}
-//       >
-//         <Text
-//           onPress={() => initiateCall('messi@gmail.com', callerId)}
-//           style={{ color: 'black', alignSelf: 'center', fontSize: 38 }}
-//         >
-//           Call Carina?
-//         </Text>
-//       </TouchableOpacity>
-//     </SafeAreaView>
-//   );
-// };
-
-// const Button = ({ onPress, buttonText, backgroundColor }) => {
-//   return (
-//     <TouchableOpacity
-//       onPress={onPress}
-//       style={{
-//         backgroundColor: backgroundColor,
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         padding: 12,
-//         borderRadius: 4,
-//       }}
-//     >
-//       <Text style={{ color: 'white', fontSize: 12 }}>{buttonText}</Text>
-//     </TouchableOpacity>
-//   );
-// };
-
-// const ControlsContainer = ({ join, leave, toggleWebcam, toggleMic }) => {
-//   return (
-//     <View
-//       style={{
-//         padding: 24,
-//         flexDirection: 'row',
-//         justifyContent: 'space-between',
-//         width: viewportWidth * 0.88,
-//       }}
-//     >
-//       <Button
-//         onPress={join}
-//         buttonText={'Join'}
-//         backgroundColor={'#1178F8'}
-//       />
-//       <Button
-//         onPress={toggleWebcam}
-//         buttonText={'Toggle Webcam'}
-//         backgroundColor={'#1178F8'}
-//       />
-//       <Button
-//         onPress={toggleMic}
-//         buttonText={'Toggle Mic'}
-//         backgroundColor={'#1178F8'}
-//       />
-//       <Button
-//         onPress={leave}
-//         buttonText={'Leave'}
-//         backgroundColor={'#FF0000'}
-//       />
-//     </View>
-//   );
-// };
-
-// function ParticipantView({ participantId }) {
-//   const { webcamStream, webcamOn } = useParticipant(participantId);
-
-//   if (webcamOn && webcamStream) {
-//     return (
-//       <RTCView
-//         streamURL={new MediaStream([webcamStream.track]).toURL()}
-//         objectFit={'cover'}
-//         style={{
-//           flex: 1,
-//           height: 250,
-//           marginVertical: 8,
-//           marginHorizontal: 8,
-//         }}
-//       />
-//     );
-//   } else {
-//     return (
-//       <View
-//         style={{
-//           height: 550,
-//           marginVertical: 8,
-//           marginHorizontal: 8,
-//           backgroundColor: '#cccccc',
-//           justifyContent: 'center',
-//           alignItems: 'center',
-//         }}
-//       >
-//         <Text>Webcam is off</Text>
-//       </View>
-//     );
-//   }
-// }
-
-// function ParticipantList({ participants }) {
-//   return participants.length > 0 ? (
-//     <FlatList
-//       data={participants}
-//       renderItem={({ item }) => {
-//         return <ParticipantView participantId={item} />;
-//       }}
-//     />
-//   ) : (
-//     <View
-//       style={{
-//         flex: 1,
-//         backgroundColor: '#fff',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//       }}
-//     >
-//       <Text style={{ fontSize: 20 }}>Press Join button to enter meeting.</Text>
-//     </View>
-//   );
-// }
-
-// function MeetingView({ autoJoin, setAutoJoin }) {
-//   const { join, leave, toggleWebcam, toggleMic, meetingId, participants } = useMeeting({});
-//   const participantsArrId = [...participants.keys()];
-
-//   useEffect(() => {
-//     if (autoJoin) {
-//       join();
-//       toggleWebcam();
-//       setAutoJoin(false);
-//     }
-//   }, [autoJoin, join, toggleWebcam, setAutoJoin]);
-
-//   return (
-//     <View style={{ flex: 1 }}>
-//       {meetingId ? (
-//         <Text style={{ fontSize: 18, padding: 12 }}>Meeting Id :{meetingId}</Text>
-//       ) : null}
-//       <ParticipantList participants={participantsArrId} />
-//       <ControlsContainer
-//         join={join}
-//         leave={leave}
-//         toggleWebcam={toggleWebcam}
-//         toggleMic={toggleMic}
-//       />
-//     </View>
-//   );
-// }
-
-// export default function VideoSK() {
-//   const [meetingId, setMeetingId] = useState(null);
-//   const [autoJoin, setAutoJoin] = useState(false);
-
-//   const getMeetingId = (id) => {
-//     setMeetingId(id);
-//     setAutoJoin(true);
-//   };
-
-//   return meetingId ? (
-//     <SafeAreaView style={{ flex: 1, backgroundColor: '#fff' }}>
-//       <MeetingProvider
-//         config={{
-//           meetingId,
-//           micEnabled: false,
-//           webcamEnabled: true,
-//           name: 'Test User',
-//         }}
-//         token={token}
-//       >
-//         <MeetingView autoJoin={autoJoin} setAutoJoin={setAutoJoin} />
-//       </MeetingProvider>
-//     </SafeAreaView>
-//   ) : (
-//     <JoinScreen getMeetingId={getMeetingId} />
-//   );
-// }

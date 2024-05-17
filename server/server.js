@@ -17,7 +17,8 @@ const socketIo = require('socket.io')(http, {
   cors: {
     // MUST CHANGE IP ADDRESS TO MATCH YOUR NETWORK IP ADDRESS 
     // please change ip address in server.js as well
-    origin: "http://192.168.1.73:3000", //thin air labs wifi
+    origin: "http://10.0.0.193:3000", //sally wifi
+    // origin: "http://192.168.1.73:3000", //thin air labs wifi
     // origin: "http://10.44.22.86:3000", //inception wifi
     methods: ["GET", "POST"],
     // origin: "*"

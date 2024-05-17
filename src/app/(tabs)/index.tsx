@@ -15,13 +15,6 @@ import { doc, getDoc, setDoc } from 'firebase/firestore';
 import {createMeeting, token} from '../../components/CarouselTwo/ApiSK';
 import messaging from '@react-native-firebase/messaging';
 
-async function requestUserPermission() {
-  const authorizationStatus = await messaging().requestPermission();
-
-  if (authorizationStatus) {
-    console.log('Permission status:', authorizationStatus);
-  }
-}
 
 
 const Stack = createNativeStackNavigator();
@@ -53,7 +46,8 @@ export default function TabOneScreen() {
     console.log("hello please work please");
     // MUST CHANGE IP ADDRESS TO MATCH YOUR NETWORK IP ADDRESS 
     // please change ip address in server.server.js as well)
-    const socket = io('http://192.168.1.73:3000/'); // thin air labs wifi
+    // const socket = io('http://192.168.1.73:3000/'); // thin air labs wifi
+    const socket = io('http://10.0.0.193:3000/'); // sally wifi
     // const socket = io('http://10.44.22.86:3000/'); //inception wifi
   
     socket.on("connect", () => {
@@ -73,72 +67,6 @@ export default function TabOneScreen() {
     return () => socket.disconnect();
   }, []);
 
-  useEffect(() => {
-    const socket = io('http://192.168.1.73:3000/'); // thin air labs wifi
-    // const socket = io('http://10.44.22.86:3000/'); //inception wifi
-    socket.on('incomingCall', handleIncomingCall);
-
-    socket.on('incomingCall', (data) => {
-      Alert.alert(
-        'Incoming Call',
-        `${data.name} is calling`,
-        [
-          { text: 'Answer', onPress: () => answerCall(data.callId) },
-          { text: 'Decline', onPress: () => declineCall(data.callId) }
-        ],
-        { cancelable: false }
-      );
-    });
-  
-    return () => {
-      socket.off('incomingCall', handleIncomingCall);
-    };
-  }, []);
-  
-  // const handleIncomingCall = (data) => {
-  //   // Handle incoming call with Alert or a modal
-  //   console.log('Incoming call from:', data.name);
-  // };
-
-  //handles incoming call
-const handleIncomingCall = (data) => {
-  console.log('Incoming call from:', data.name);
-  Alert.alert(
-    'Incoming Call',
-    `${data.name} is calling`,
-    [
-      { text: 'Answer', onPress: () => answerCall(data.callId) },
-      { text: 'Decline', onPress: () => declineCall(data.callId) }
-    ]
-  );
-};
-
-//answer/decline calls
-// const answerCall = async (callId) => {
-//   const socket = io('http://192.168.1.73:3000/');
-//   const callDocRef = doc(FIRESTORE_DB, 'calls', callId);
-//   await setDoc(callDocRef, { status: 'answered' }, { merge: true });
-
-//   socket.emit('answerCall', { callId, to: 'pat@gmail.com' });
-// };
-
-// const declineCall = async (callId) => {
-//   const callDocRef = doc(FIRESTORE_DB, 'calls', callId);
-//   await setDoc(callDocRef, { status: 'declined' }, { merge: true });
-// };
-
-const answerCall = async (callId) => {
-  const callDocRef = doc(FIRESTORE_DB, 'calls', callId);
-  await setDoc(callDocRef, { status: 'answered' }, { merge: true });
-  const socket = io('http://192.168.1.73:3000/'); // thin air labs wifi
-  // const socket = io('http://10.44.22.86:3000/'); //inception wifi
-  socket.emit('answerCall', { callId, to: 'messi@gmail.com' });
-};
-
-const declineCall = async (callId) => {
-  const callDocRef = doc(FIRESTORE_DB, 'calls', callId);
-  await setDoc(callDocRef, { status: 'declined' }, { merge: true });
-};
 
   return (
     <NavigationContainer independent={true}>

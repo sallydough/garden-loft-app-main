@@ -1,0 +1,37 @@
+{
+  "project_info": {
+    "project_number": "556786122311",
+    "project_id": "garden-loft-app-6df76",
+    "storage_bucket": "garden-loft-app-6df76.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556786122311:android:1ebb012e380e6915157b62",
+        "android_client_info": {
+          "package_name": "com.anonymous.gardenloftapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDORdKIE7TenRdW6iYkeMZaHWTjgKIIy4Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556786122311-rmm14n6gbncdqfltu93c7tcsbnlhtsde.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anonymous.gardenloftapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
