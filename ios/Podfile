@@ -18,25 +18,31 @@ flipper_config = podfile_properties.key?('ios.flipper') && podfile_properties['i
 
 target 'gardenloftapp' do # Replace 'YourTargetName' with 'gardenloftapp'
   # Use modular headers for specific pods
+  use_modular_headers!
+
   pod 'Firebase/Core', :modular_headers => true
-  # pod 'WherebySDK' , :git => 'https://github.com/whereby/ios-sdk.git'
-  pod 'SignalCoreKit', :git => 'https://github.com/signalapp/SignalCoreKit.git'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Firestore', :modular_headers => true
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore', :modular_headers => true
+
+  # pod 'SignalCoreKit', :git => 'https://github.com/signalapp/SignalCoreKit.git'
   pod 'GoogleUtilities', :modular_headers => true
   pod 'CocoaLumberjack', :modular_headers => true
 
   # Pods for React Native Firebase
   pod 'RNFBApp', :path => '../node_modules/@react-native-firebase/app'
   pod 'RNFBMessaging', :path => '../node_modules/@react-native-firebase/messaging'
+  pod 'RNFBFirestore', :path => '../node_modules/@react-native-firebase/firestore', :modular_headers => true
+  
+    # gRPC dependencies with modular headers
+   
+    pod 'gRPC', '1.62.5'
+  pod 'gRPC-Core', '1.62.5'
 
   # Pods for VideoSDK
   pod 'react-native-webrtc', :path => '../node_modules/@videosdk.live/react-native-webrtc'
-
-  # pod "React", :path => "../node_modules/react-native", :subspecs => [
-  # 'React-RCTText',
-  # 'React-RCTImage',
-  # 'React-RCTNetwork"',
-  # 'React-Core/RCTWebSocket',
-  # ]
+ 
 
   pod 'React-Core', :path => '../node_modules/react-native/'
 pod 'React-RCTText', :path => '../node_modules/react-native/Libraries/Text'
@@ -45,12 +51,15 @@ pod 'React-RCTNetwork', :path => '../node_modules/react-native/Libraries/Network
 
 
   # Ensure you include the Expo and React Native auto-linking scripts
+
   use_expo_modules!
   config = use_native_modules!
 
   # Dynamic frameworks can be linked dynamically or statically.
   use_frameworks! :linkage => podfile_properties['ios.useFrameworks'].to_sym if podfile_properties.key?('ios.useFrameworks')
+  use_frameworks! :linkage => :static
 
+  $RNFirebaseAsStaticFramework = true
   # Your existing React Native and Expo setup
   use_react_native!(
     :path => config[:reactNativePath],

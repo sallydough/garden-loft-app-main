@@ -11,12 +11,23 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2C1BAB19A7B74B00BC147F5F /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = D381B0AFBCEE483E8AD78A34 /* noop-file.swift */; };
-		3569D213E46828A527430C04 /* libPods-gardenloftapp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29783B53BF3AF810C6A6DE89 /* libPods-gardenloftapp.a */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
 		4827C7A8346C5C6E9CE866DE /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E323985D529FBAA047AB57A3 /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		BF7AA7592BC9ACD800EB82E1 /* libreact-native-webrtc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BF7AA7582BC9ACD800EB82E1 /* libreact-native-webrtc.a */; };
+		BFB9FE9E2BF67F28004595E5 /* RCTWebRTC.xcodeproj in Frameworks */ = {isa = PBXBuildFile; fileRef = BFB9FE982BF67EEE004595E5 /* RCTWebRTC.xcodeproj */; };
+		BFB9FE9F2BF68A8C004595E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BFAB813D2BF6702C003597D6 /* GoogleService-Info.plist */; };
+		F651796D12D69BBDD89D9F5C /* Pods_gardenloftapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B161E6C765FB246CA44D55 /* Pods_gardenloftapp.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BFB9FE9C2BF67EEE004595E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFB9FE982BF67EEE004595E5 /* RCTWebRTC.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 35A2221F1CB493700015FD5C;
+			remoteInfo = RCTWebRTC;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		03E1B80587D148369DB6E192 /* Pods-gardenloftapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gardenloftapp.debug.xcconfig"; path = "Target Support Files/Pods-gardenloftapp/Pods-gardenloftapp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -26,7 +37,6 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = gardenloftapp/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = gardenloftapp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = gardenloftapp/main.m; sourceTree = "<group>"; };
-		29783B53BF3AF810C6A6DE89 /* libPods-gardenloftapp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gardenloftapp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4927095680DB9632B7393AA0 /* Pods-gardenloftapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-gardenloftapp.release.xcconfig"; path = "Target Support Files/Pods-gardenloftapp/Pods-gardenloftapp.release.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = gardenloftapp/SplashScreen.storyboard; sourceTree = "<group>"; };
 		B62409CD12234816A686B28D /* gardenloftapp-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "gardenloftapp-Bridging-Header.h"; path = "gardenloftapp/gardenloftapp-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -34,9 +44,12 @@
 		BF6B9E422BD2D0F200F7BF8E /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		BF6B9E442BD2D1FD00F7BF8E /* main.jsbundle */ = {isa = PBXFileReference; lastKnownFileType = text; name = main.jsbundle; path = gardenloftapp/main.jsbundle; sourceTree = "<group>"; };
 		BF7AA7582BC9ACD800EB82E1 /* libreact-native-webrtc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = "libreact-native-webrtc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFAB813D2BF6702C003597D6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		BFB9FE982BF67EEE004595E5 /* RCTWebRTC.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebRTC.xcodeproj; path = "../node_modules/@videosdk.live/react-native-webrtc/ios/RCTWebRTC.xcodeproj"; sourceTree = "<group>"; };
 		D381B0AFBCEE483E8AD78A34 /* noop-file.swift */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.swift; name = "noop-file.swift"; path = "gardenloftapp/noop-file.swift"; sourceTree = "<group>"; };
 		E323985D529FBAA047AB57A3 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-gardenloftapp/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		F0B161E6C765FB246CA44D55 /* Pods_gardenloftapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_gardenloftapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,8 +57,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF7AA7592BC9ACD800EB82E1 /* libreact-native-webrtc.a in Frameworks */,
-				3569D213E46828A527430C04 /* libPods-gardenloftapp.a in Frameworks */,
+				BFB9FE9E2BF67F28004595E5 /* RCTWebRTC.xcodeproj in Frameworks */,
+				F651796D12D69BBDD89D9F5C /* Pods_gardenloftapp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,9 +92,10 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				BFB9FE982BF67EEE004595E5 /* RCTWebRTC.xcodeproj */,
 				BF7AA7582BC9ACD800EB82E1 /* libreact-native-webrtc.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				29783B53BF3AF810C6A6DE89 /* libPods-gardenloftapp.a */,
+				F0B161E6C765FB246CA44D55 /* Pods_gardenloftapp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -96,6 +110,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				BFAB813D2BF6702C003597D6 /* GoogleService-Info.plist */,
 				BF6B9E422BD2D0F200F7BF8E /* main.jsbundle */,
 				BF6B9E442BD2D1FD00F7BF8E /* main.jsbundle */,
 				13B07FAE1A68108700A75B9A /* gardenloftapp */,
@@ -135,6 +150,14 @@
 			path = gardenloftapp/Supporting;
 			sourceTree = "<group>";
 		};
+		BFB9FE992BF67EEE004595E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFB9FE9D2BF67EEE004595E5 /* libRCTWebRTC.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D65327D7A22EEC0BE12398D9 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,8 +180,8 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A514C0BA88969B342580D8CC /* [CP] Embed Pods Frameworks */,
-				FD93489D42E75D9FFF38CAA3 /* [CP] Copy Pods Resources */,
+				B2FFB45ADF53F3CFC8303C1C /* [CP] Embed Pods Frameworks */,
+				FA12E6DB43DC1BD9A4637152 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +216,12 @@
 			mainGroup = 83CBB9F61A601CBA00E9B192;
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = BFB9FE992BF67EEE004595E5 /* Products */;
+					ProjectRef = BFB9FE982BF67EEE004595E5 /* RCTWebRTC.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				13B07F861A680F5B00A75B9A /* gardenloftapp */,
@@ -200,12 +229,23 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		BFB9FE9D2BF67EEE004595E5 /* libRCTWebRTC.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTWebRTC.a;
+			remoteRef = BFB9FE9C2BF67EEE004595E5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		13B07F8E1A680F5B00A75B9A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
+				BFB9FE9F2BF68A8C004595E5 /* GoogleService-Info.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
 			);
@@ -270,7 +310,7 @@
 			shellPath = /bin/sh;
 			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-gardenloftapp/expo-configure-project.sh\"\n";
 		};
-		A514C0BA88969B342580D8CC /* [CP] Embed Pods Frameworks */ = {
+		B2FFB45ADF53F3CFC8303C1C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -292,38 +332,66 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-gardenloftapp/Pods-gardenloftapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		FD93489D42E75D9FFF38CAA3 /* [CP] Copy Pods Resources */ = {
+		FA12E6DB43DC1BD9A4637152 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-gardenloftapp/Pods-gardenloftapp-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/BoringSSL-GRPC/openssl_grpc.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack/CocoaLumberjackPrivacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXApplication/ExpoApplication_privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXNotifications/ExpoNotifications_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseAuth/FirebaseAuth_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCore/FirebaseCore_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreExtension/FirebaseCoreExtension_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseCoreInternal/FirebaseCoreInternal_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/FirebaseFirestore_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestoreInternal/FirebaseFirestoreInternal_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseInstallations/FirebaseInstallations_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseMessaging/FirebaseMessaging_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/GTMSessionFetcher/GTMSessionFetcher_Core_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleDataTransport/GoogleDataTransport_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/GoogleUtilities/GoogleUtilities_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/PromisesObjC/FBLPromises_Privacy.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/RCTI18nStrings.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/nanopb/nanopb_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/abseil/xcprivacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/gRPCCertificates.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC/GRPCClient.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/gRPCCertificates-Cpp.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-C++/grpcpp.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/gRPC-Core/grpc.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/leveldb-library/leveldb_Privacy.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/openssl_grpc.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/CocoaLumberjackPrivacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoApplication_privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoNotifications_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuth_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCore_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCoreExtension_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseCoreInternal_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFirestore_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFirestoreInternal_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseInstallations_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseMessaging_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GTMSessionFetcher_Core_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleDataTransport_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleUtilities_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FBLPromises_Privacy.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCTI18nStrings.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/nanopb_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/xcprivacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GRPCClient.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Cpp.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/grpcpp.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/grpc.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/leveldb_Privacy.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -355,7 +423,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = gardenloftapp/gardenloftapp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W66VPP6A34;
+				DEVELOPMENT_TEAM = GXPC3HRVU2;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"$(inherited)",
@@ -374,7 +442,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_DEBUG";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.gardenloftapp1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.gardenloftapp;
 				PRODUCT_NAME = gardenloftapp;
 				SWIFT_OBJC_BRIDGING_HEADER = "gardenloftapp/gardenloftapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -392,7 +460,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = gardenloftapp/gardenloftapp.entitlements;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = W66VPP6A34;
+				DEVELOPMENT_TEAM = GXPC3HRVU2;
 				INFOPLIST_FILE = gardenloftapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -406,7 +474,7 @@
 					"-lc++",
 				);
 				OTHER_SWIFT_FLAGS = "$(inherited) -D EXPO_CONFIGURATION_RELEASE";
-				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.gardenloftapp1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.anonymous.gardenloftapp;
 				PRODUCT_NAME = gardenloftapp;
 				SWIFT_OBJC_BRIDGING_HEADER = "gardenloftapp/gardenloftapp-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
@@ -463,6 +531,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -473,7 +552,10 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;
@@ -521,6 +603,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
@@ -530,7 +623,10 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_CPLUSPLUSFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)  ";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
 				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				USE_HERMES = true;

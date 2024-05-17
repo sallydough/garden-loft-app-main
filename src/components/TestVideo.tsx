@@ -413,124 +413,124 @@
 // });
 
 
-import React, { useEffect, useState } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
-import { mediaDevices, RTCView, RTCPeerConnection, RTCIceCandidate } from 'react-native-webrtc';
-import io from 'socket.io-client';
+// import React, { useEffect, useState } from 'react';
+// import { View, Button, StyleSheet } from 'react-native';
+// import { mediaDevices, RTCView, RTCPeerConnection, RTCIceCandidate } from 'react-native-webrtc';
+// import io from 'socket.io-client';
 
-const signalingServerUrl = 'http://192.168.1.73:3000';
+// const signalingServerUrl = 'http://192.168.1.73:3000';
 
-// Myles: 192.168.1.118
-// Thin Air: 192.168.1.73
+// // Myles: 192.168.1.118
+// // Thin Air: 192.168.1.73
 
- const TestVideo = () => {
-  const [localStream, setLocalStream] = useState(null);
-  const [remoteStream, setRemoteStream] = useState(null);
-  const [socket, setSocket] = useState(null);
-  const [peerConnection, setPeerConnection] = useState(null);
+//  const TestVideo = () => {
+//   const [localStream, setLocalStream] = useState(null);
+//   const [remoteStream, setRemoteStream] = useState(null);
+//   const [socket, setSocket] = useState(null);
+//   const [peerConnection, setPeerConnection] = useState(null);
 
-  useEffect(() => {
-    // Request permissions and get the local stream
-    const getLocalStream = async () => {
-      const stream = await mediaDevices.getUserMedia({ audio: true, video: true });
-      setLocalStream(stream);
-    };
+//   useEffect(() => {
+//     // Request permissions and get the local stream
+//     const getLocalStream = async () => {
+//       const stream = await mediaDevices.getUserMedia({ audio: true, video: true });
+//       setLocalStream(stream);
+//     };
 
-    getLocalStream();
+//     getLocalStream();
 
-    // Setup the socket connection to the signaling server
-    const newSocket = io(signalingServerUrl);
-    setSocket(newSocket);
-    return () => newSocket.close();
-  }, []);
+//     // Setup the socket connection to the signaling server
+//     const newSocket = io(signalingServerUrl);
+//     setSocket(newSocket);
+//     return () => newSocket.close();
+//   }, []);
 
-  const startCall = async () => {
-    const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
-    const pc = new RTCPeerConnection(configuration);
+//   const startCall = async () => {
+//     const configuration = { iceServers: [{ urls: 'stun:stun.l.google.com:19302' }] };
+//     const pc = new RTCPeerConnection(configuration);
 
-    // Add the local stream tracks to the RTCPeerConnection
-    localStream.getTracks().forEach((track) => pc.addTrack(track, localStream));
+//     // Add the local stream tracks to the RTCPeerConnection
+//     localStream.getTracks().forEach((track) => pc.addTrack(track, localStream));
 
-    pc.onicecandidate = (event) => {
-      if (event.candidate) {
-        socket.emit('candidate', event.candidate);
-      }
-    };
+//     pc.onicecandidate = (event) => {
+//       if (event.candidate) {
+//         socket.emit('candidate', event.candidate);
+//       }
+//     };
 
-    pc.ontrack = (event) => {
-      if (event.streams && event.streams[0]) {
-        setRemoteStream(event.streams[0]);
-      }
-    };
+//     pc.ontrack = (event) => {
+//       if (event.streams && event.streams[0]) {
+//         setRemoteStream(event.streams[0]);
+//       }
+//     };
 
-    setPeerConnection(pc);
+//     setPeerConnection(pc);
 
-    // Create an offer and set the local description
-    const offer = await pc.createOffer();
-    await pc.setLocalDescription(offer);
+//     // Create an offer and set the local description
+//     const offer = await pc.createOffer();
+//     await pc.setLocalDescription(offer);
 
-    // Send the offer to the remote peer through the signaling server
-    socket.emit('offer', offer);
+//     // Send the offer to the remote peer through the signaling server
+//     socket.emit('offer', offer);
 
-    // Listen for answer from the signaling server
-    socket.on('answer', async (answer) => {
-      await pc.setRemoteDescription(new RTCSessionDescription(answer));
-    });
+//     // Listen for answer from the signaling server
+//     socket.on('answer', async (answer) => {
+//       await pc.setRemoteDescription(new RTCSessionDescription(answer));
+//     });
 
-    // Listen for ICE candidates from the signaling server
-    socket.on('candidate', (candidate) => {
-      pc.addIceCandidate(new RTCIceCandidate(candidate));
-    });
-  };
+//     // Listen for ICE candidates from the signaling server
+//     socket.on('candidate', (candidate) => {
+//       pc.addIceCandidate(new RTCIceCandidate(candidate));
+//     });
+//   };
 
-  useEffect(() => {
-    if (socket) {
-      // Listen for offers from the signaling server
-      socket.on('offer', async (offer) => {
-        if (!peerConnection) startCall();
-        await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
-        const answer = await peerConnection.createAnswer();
-        await peerConnection.setLocalDescription(answer);
-        socket.emit('answer', answer);
-      });
+//   useEffect(() => {
+//     if (socket) {
+//       // Listen for offers from the signaling server
+//       socket.on('offer', async (offer) => {
+//         if (!peerConnection) startCall();
+//         await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
+//         const answer = await peerConnection.createAnswer();
+//         await peerConnection.setLocalDescription(answer);
+//         socket.emit('answer', answer);
+//       });
 
-      // Listen for ICE candidates from the signaling server
-      socket.on('candidate', (candidate) => {
-        peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
-      });
-    }
-  }, [socket, peerConnection]);
+//       // Listen for ICE candidates from the signaling server
+//       socket.on('candidate', (candidate) => {
+//         peerConnection.addIceCandidate(new RTCIceCandidate(candidate));
+//       });
+//     }
+//   }, [socket, peerConnection]);
 
-  return (
-    <View style={styles.container}>
-      <Button title="Start Call" onPress={startCall} />
-      {localStream && (
-        <RTCView streamURL={localStream.toURL()} style={styles.localVideo} />
-      )}
-      {remoteStream && (
-        <RTCView streamURL={remoteStream.toURL()} style={styles.remoteVideo} />
-      )}
-    </View>
-  );
-};
+//   return (
+//     <View style={styles.container}>
+//       <Button title="Start Call" onPress={startCall} />
+//       {localStream && (
+//         <RTCView streamURL={localStream.toURL()} style={styles.localVideo} />
+//       )}
+//       {remoteStream && (
+//         <RTCView streamURL={remoteStream.toURL()} style={styles.remoteVideo} />
+//       )}
+//     </View>
+//   );
+// };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  localVideo: {
-    width: 500,
-    height: 350,
-    backgroundColor: 'black',
-  },
-  remoteVideo: {
-    width: 500,
-    height: 300,
-    backgroundColor: 'black',
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: 'flex-start',
+//     alignItems: 'center',
+//     backgroundColor: '#F5FCFF',
+//   },
+//   localVideo: {
+//     width: 500,
+//     height: 350,
+//     backgroundColor: 'black',
+//   },
+//   remoteVideo: {
+//     width: 500,
+//     height: 300,
+//     backgroundColor: 'black',
+//   },
+// });
 
-export default TestVideo;
+// export default TestVideo;
